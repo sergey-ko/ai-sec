@@ -1,4 +1,9 @@
-node_modules/\ndist/\n.env\n*.log\nai-sec-report.md
+node_modules/
+dist/
+.env
+*.log
+
+# Example repos (large, cloned for auditing) — only track reports
 examples/maybe-finance/**
 !examples/maybe-finance/ai-sec-report.md
 !examples/maybe-finance/cicd-report.md
