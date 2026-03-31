@@ -1,1 +1,4 @@
 node_modules/\ndist/\n.env\n*.log\nai-sec-report.md
+examples/maybe-finance/**
+!examples/maybe-finance/ai-sec-report.md
+!examples/maybe-finance/cicd-report.md
