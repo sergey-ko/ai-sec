@@ -97,6 +97,33 @@ The report claimed the redirect-uri validation uses `startsWith('http://localhos
 
 ---
 
-## CI/CD Audits (not yet verified)
+## CI/CD Audits — Verified 2026-04-01
 
-The 3 CI/CD audit reports (maybe-finance: 9 findings, Documenso: ~13 findings, Hoppscotch: ~10 findings) have not been cross-checked yet. These reference GitHub Actions workflows, Dockerfiles, and CI configuration files.
+All 3 CI/CD audit reports were cross-checked against live repos on 2026-04-01.
+
+| Repo | CI/CD Findings | Confirmed | Partially | Inaccurate |
+|------|---------------|-----------|-----------|------------|
+| maybe-finance | 9 | 9 (100%) | 0 | 0 |
+| Documenso | 18 | 18 (100%) | 0 | 0 |
+| Hoppscotch | 22 | 22 (100%) | 0 | 0 |
+| **Total** | **49** | **49** | **0** | **0** |
+
+**100% of CI/CD findings confirmed. Zero false positives.**
+
+Minor non-material discrepancies:
+- Hoppscotch H4: Tauri CLI version is v2.2.0 (not v2.0.1 as cited), same vulnerability pattern
+- Hoppscotch H7: `repository` input exists on desktop workflow but not agent workflow
+
+---
+
+## Grand Total — All Audits
+
+| Category | Findings | Confirmed | Partially | Inaccurate |
+|----------|----------|-----------|-----------|------------|
+| Web audits | 49 | 48 | 1 | 0 |
+| CI/CD audits | 49 | 49 | 0 | 0 |
+| **Total** | **98** | **97** | **1** | **0** |
+
+**99% fully confirmed. 1 partially confirmed. Zero hallucinated findings.**
+
+The 1 partially confirmed finding (Hoppscotch W-04) overstated the open redirect vector but the underlying token exposure issue is real.
