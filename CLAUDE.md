@@ -22,9 +22,11 @@ ai-sec/
 │   │   ├── api-auditor.md         # API + webhook security — ASVS V13, V2.10
 │   │   ├── cicd-auditor.md        # OWASP CI/CD Top 10 — pipelines, deps, secrets
 │   │   ├── infra-auditor.md       # CIS benchmarks — cloud, K8s, network, IAM
-│   │   └── mobile-auditor.md      # OWASP MASVS L1 — storage, crypto, network, platform
+│   │   ├── mobile-auditor.md      # OWASP MASVS L1 — storage, crypto, network, platform
+│   │   └── verify-auditor.md     # Cross-check findings against actual source code
 │   └── skills/
-│       └── audit/SKILL.md         # Orchestrator — detect, dispatch, merge
+│       ├── audit/SKILL.md         # Orchestrator — detect, dispatch, merge
+│       └── verify/SKILL.md        # /verify — validate findings are real, not hallucinated
 ├── methodology/
 │   ├── asvs-l2-checklist.md       # Full OWASP ASVS v4.0.3 L2 requirements
 │   ├── masvs-l1-checklist.md      # Full OWASP MASVS v2.1 L1 requirements
