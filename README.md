@@ -18,7 +18,7 @@ AI-Sec uses Claude to reason about your entire codebase — auth flows, business
 ---
 
 <div align="center">
-  <img src="demo.gif" alt="AI-Sec Demo — /audit in action" width="800">
+  <img src="demo.svg" alt="AI-Sec Demo — /audit in action" width="820">
 </div>
 
 ---
