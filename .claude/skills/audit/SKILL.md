@@ -172,3 +172,14 @@ After writing the report, show the user:
 2. Top 3 most critical findings with one-line descriptions
 3. Path to the full report
 4. Suggestion: "Run `/audit` again after fixing critical issues to verify remediation"
+
+## Step 5 — Update Registry (if exists)
+
+If `findings-registry.yaml` exists in the project root:
+1. Read the existing registry
+2. For each finding in the new report that's not in the registry — add it with auto-generated verify patterns
+3. For each finding in the registry marked open — check if it appears in the new report. If not, flag for manual review.
+4. Save the updated registry
+5. Tell the user: "Registry updated. Run `/track verify` to check which findings have been fixed."
+
+If no registry exists, suggest: "Run `/track init` to start tracking findings across audit runs."

@@ -1,0 +1,11 @@
+{
+  "name": "ai-sec",
+  "description": "Security audit plugins",
+  "plugins": [
+    {
+      "name": "ai-sec",
+      "description": "AI-powered security audit — OWASP ASVS, MASVS, CIS, CI/CD Top 10",
+      "path": "."
+    }
+  ]
+}

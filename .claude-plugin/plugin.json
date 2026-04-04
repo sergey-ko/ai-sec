@@ -1,0 +1,77 @@
+{
+  "name": "ai-sec",
+  "description": "AI-powered security audit — OWASP ASVS, MASVS, CIS, CI/CD Top 10",
+  "version": "1.0.0",
+  "author": "Sergey Kovalev",
+  "license": "MIT",
+  "homepage": "https://github.com/sergey-ko/ai-sec",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergey-ko/ai-sec.git"
+  },
+  "provides": {
+    "skills": [
+      {
+        "name": "audit",
+        "description": "Run a security audit against OWASP ASVS, MASVS, CIS, or CI/CD Top 10 frameworks",
+        "path": ".claude/skills/audit/SKILL.md",
+        "command": "/audit"
+      },
+      {
+        "name": "verify",
+        "description": "Verify and cross-check security audit findings",
+        "path": ".claude/skills/verify/SKILL.md",
+        "command": "/verify"
+      },
+      {
+        "name": "track",
+        "description": "Track and manage findings across audit runs via findings-registry.yaml",
+        "path": ".claude/skills/track/SKILL.md",
+        "command": "/track"
+      }
+    ],
+    "agents": [
+      {
+        "name": "web-app-auditor",
+        "description": "Web application security auditor (OWASP ASVS)",
+        "path": ".claude/agents/web-app-auditor.md"
+      },
+      {
+        "name": "api-auditor",
+        "description": "API security auditor",
+        "path": ".claude/agents/api-auditor.md"
+      },
+      {
+        "name": "mobile-auditor",
+        "description": "Mobile application security auditor (OWASP MASVS)",
+        "path": ".claude/agents/mobile-auditor.md"
+      },
+      {
+        "name": "infra-auditor",
+        "description": "Infrastructure security auditor (CIS benchmarks)",
+        "path": ".claude/agents/infra-auditor.md"
+      },
+      {
+        "name": "cicd-auditor",
+        "description": "CI/CD pipeline security auditor (CI/CD Top 10)",
+        "path": ".claude/agents/cicd-auditor.md"
+      },
+      {
+        "name": "verify-auditor",
+        "description": "Cross-check and verify audit findings",
+        "path": ".claude/agents/verify-auditor.md"
+      }
+    ]
+  },
+  "keywords": [
+    "security",
+    "audit",
+    "owasp",
+    "asvs",
+    "masvs",
+    "cis",
+    "cicd",
+    "vulnerability",
+    "pentest"
+  ]
+}

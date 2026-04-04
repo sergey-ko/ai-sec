@@ -1,0 +1,43 @@
+# AI-Sec Findings Registry
+# Track findings across audit runs. Updated after each /audit cycle.
+# Use /track to manage this file, or edit manually.
+#
+# verify.expect values:
+#   absent  — the grep pattern should NOT be found (if found → fix exists → RESOLVED)
+#   present — the grep pattern SHOULD be found (if found → vuln exists → OPEN)
+#
+# Copy this file to your project root as findings-registry.yaml and fill in the details.
+
+project: "{project-name}"
+last_audit: "{date}"
+findings: []
+
+# Example finding:
+#  - id: AUTH-01
+#    severity: critical
+#    title: "JWT tokens never expire"
+#    category: web-app          # web-app, api, cicd, infra, mobile
+#    first_found: "2026-04-04"
+#    status: open               # open / resolved
+#    resolved_date: null
+#    resolved_commit: null
+#    verify:
+#      - pattern: "expiresIn|exp:"
+#        paths: ["src/auth/"]
+#        expect: absent          # no expiry config → OPEN
+#
+#  - id: CICD-03
+#    severity: high
+#    title: "Secrets stored as plain-text environment variables"
+#    category: cicd
+#    first_found: "2026-04-04"
+#    status: resolved
+#    resolved_date: "2026-04-10"
+#    resolved_commit: "abc1234"
+#    verify:
+#      - pattern: "secrets\\..*\\.value|vault_|sops_"
+#        paths: [".github/workflows/"]
+#        expect: present         # encrypted secrets mechanism present → RESOLVED
+#      - pattern: "password.*=.*['\"]"
+#        paths: [".github/workflows/", "docker-compose*.yml"]
+#        expect: absent          # no hardcoded passwords → RESOLVED

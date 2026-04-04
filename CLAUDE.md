@@ -23,16 +23,18 @@ ai-sec/
 │   │   ├── cicd-auditor.md        # OWASP CI/CD Top 10 — pipelines, deps, secrets
 │   │   ├── infra-auditor.md       # CIS benchmarks — cloud, K8s, network, IAM
 │   │   ├── mobile-auditor.md      # OWASP MASVS L1 — storage, crypto, network, platform
-│   │   └── verify-auditor.md     # Cross-check findings against actual source code
+│   │   └── verify-auditor.md     # Cross-check findings — report mode + registry mode
 │   └── skills/
-│       ├── audit/SKILL.md         # Orchestrator — detect, dispatch, merge
-│       └── verify/SKILL.md        # /verify — validate findings are real, not hallucinated
+│       ├── audit/SKILL.md         # Orchestrator — detect, dispatch, merge, update registry
+│       ├── verify/SKILL.md        # /verify — validate findings are real, not hallucinated
+│       └── track/SKILL.md         # /track — manage findings registry across audit runs
 ├── methodology/
 │   ├── asvs-l2-checklist.md       # Full OWASP ASVS v4.0.3 L2 requirements
 │   ├── masvs-l1-checklist.md      # Full OWASP MASVS v2.1 L1 requirements
 │   ├── cis-eks-checklist.md       # CIS EKS Benchmark v1.5
 │   ├── cicd-top10-checklist.md    # OWASP CI/CD Top 10 (2023)
-│   └── finding-template.md        # Standard finding format
+│   ├── finding-template.md        # Standard finding format
+│   └── findings-registry-template.yaml  # Template for tracking findings across runs
 ├── examples/
 │   └── maybe-finance/             # First real audit (content piece)
 ├── README.md                      # GitHub landing page
@@ -73,6 +75,26 @@ Description of the vulnerability.
 
 **Recommendation:** Specific fix steps.
 ```
+
+## Findings Registry
+
+AI-Sec can track findings across audit runs using a YAML registry. This enables fast grep-based re-verification instead of full code re-review.
+
+**Workflow:**
+1. Run `/audit` to get the initial report
+2. Run `/track init` to create `findings-registry.yaml` from the report
+3. Fix issues in your code
+4. Run `/track verify` to check which findings are resolved (uses grep patterns, not full re-audit)
+5. Run `/audit` again periodically, then `/track update` to add new findings
+
+**Commands:**
+- `/track` — show open/resolved summary
+- `/track init` — create registry from last audit report
+- `/track verify` — grep-based verification of all open findings
+- `/track update` — add new findings from latest report
+- `/track diff` — show what changed since last verification
+
+The registry template is at `methodology/findings-registry-template.yaml`.
 
 ## Using AI-Sec
 
