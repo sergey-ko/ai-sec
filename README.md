@@ -151,6 +151,50 @@ The registry tracks each finding's lifecycle — when it was first found, curren
 
 See [`methodology/findings-registry-template.yaml`](methodology/findings-registry-template.yaml) for the schema.
 
+## CI/CD — Audit Every Pull Request
+
+Add AI-Sec to your GitHub Actions to get security findings as PR review comments — automatically, on every pull request.
+
+**1. Generate a token (one time):**
+
+```bash
+claude setup-token
+# → copies sk-ant-oat01-... to clipboard
+```
+
+**2. Add to GitHub repo secrets** as `CLAUDE_CODE_OAUTH_TOKEN`
+
+**3. Create `.github/workflows/ai-sec.yml`:**
+
+```yaml
+name: AI-Sec Security Review
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Run a security audit on the changes in this PR.
+            Focus on the diff — check for auth issues, injection,
+            business logic flaws, and CI/CD security.
+            Post findings as review comments on the relevant lines.
+```
+
+Uses your existing Claude Max/Pro subscription — no separate API billing.
+
+> **Tip:** For repos with an API key instead, replace `claude_code_oauth_token` with `anthropic_api_key` and use `ANTHROPIC_API_KEY` secret.
+
 ## Battle-Tested
 
 > **87+ findings across 5 security zones** on a VARA-regulated cryptocurrency exchange in production — a platform handling real money under regulatory oversight.
