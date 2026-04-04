@@ -167,12 +167,7 @@ The frameworks aren't theoretical. Every checklist in [`methodology/`](methodolo
 
 ## Want More?
 
-| Need | Solution |
-|------|----------|
-| Quick scan of a public repo | **Use this tool — it's free** |
-| Full audit with expert review | [Book a call](https://ai-sec.pro/contact) — starts at $2K |
-| Compliance-ready report (SOC 2, ISO 27001) | [Enterprise tier](https://ai-sec.pro/pricing) — from $10K |
-| Continuous monitoring | SaaS coming soon — [join waitlist](https://ai-sec.pro) |
+For expert-reviewed audits, compliance-ready reports, and continuous monitoring — visit [ai-sec.pro](https://ai-sec.pro).
 
 ## Contributing
 
@@ -184,26 +179,6 @@ Contributions welcome. The best ways to help:
 - **Share your audit reports** (redacted) so we can benchmark accuracy
 
 See the [`methodology/`](methodology/) folder for the audit frameworks.
-
----
-
-<div align="center">
-
-### If AI-Sec found something useful, [star this repo](https://github.com/sergey-ko/ai-sec) — it helps others find it.
-
-[![Star History Chart](https://api.star-history.com/svg?repos=sergey-ko/ai-sec&type=Date)](https://star-history.com/#sergey-ko/ai-sec&Date)
-
-</div>
-
----
-
-## Built By
-
-**Sergey Kovalev** — CTO building security tools for the AI coding era. Built from real audit experience on regulated financial infrastructure.
-
-- [ai-sec.pro](https://ai-sec.pro)
-- [LinkedIn](https://www.linkedin.com/in/skovalev/)
-- [GitHub](https://github.com/sergey-ko)
 
 ## License
 
